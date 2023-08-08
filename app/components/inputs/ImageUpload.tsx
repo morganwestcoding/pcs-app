@@ -39,7 +39,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
             className="
               relative
               cursor-pointer
-              hover:opacity-70
+              hover:opacity-71
               transition
               border-dashed 
               border-2 
