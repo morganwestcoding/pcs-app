@@ -1,21 +1,15 @@
 'use client';
 
 import { usePathname, useSearchParams } from 'next/navigation';
-import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
+import { ImScissors } from 'react-icons/im';
+import { TbMassage, TbEyeClosed } from 'react-icons/tb';
 import { 
-  GiBarn, 
-  GiBoatFishing, 
-  GiCactus, 
-  GiCastle, 
-  GiCaveEntrance, 
-  GiForestCamp, 
-  GiIsland,
-  GiWindmill
+  GiFingernail, 
 } from 'react-icons/gi';
-import { FaSkiing } from 'react-icons/fa';
-import { BsSnow } from 'react-icons/bs';
-import { IoDiamond } from 'react-icons/io5';
-import { MdOutlineVilla } from 'react-icons/md';
+import { BiRun } from 'react-icons/bi';
+import { PiScissorsLight } from 'react-icons/pi';
+import { IoIosFitness } from 'react-icons/io';
+import { MdFaceRetouchingNatural } from 'react-icons/md';
 
 import CategoryBox from "../CategoryBox";
 import Container from '../Container';
@@ -24,42 +18,42 @@ import Container from '../Container';
 export const categories = [
   {
     label: 'Nail Tech',
-    icon: TbBeach,
+    icon: GiFingernail,
     description: 'Nail technician services',
   },
   {
     label: 'Barber',
-    icon: GiWindmill,
+    icon: ImScissors,
     description: 'Barber services',
   },
   {
     label: 'Hair dresser',
-    icon: MdOutlineVilla,
+    icon: PiScissorsLight,
     description: 'Hair dresser services'
   },
   {
     label: 'Masseuse',
-    icon: TbMountain,
+    icon: TbMassage,
     description: 'Massueuse Services'
   },
   {
     label: 'Eye brows',
-    icon: TbPool,
+    icon: TbEyeClosed,
     description: 'Eye brow services'
   },
   {
     label: 'Dermatoligist',
-    icon: GiIsland,
+    icon: MdFaceRetouchingNatural,
     description: 'Dermatologist services'
   },
   {
     label: 'Personal trainer',
-    icon: GiBoatFishing,
+    icon: BiRun,
     description: 'Personal trainer servies'
   },
   {
     label: 'Flexologist',
-    icon: FaSkiing,
+    icon: IoIosFitness,
     description: 'Flexologist services'
   }
 
