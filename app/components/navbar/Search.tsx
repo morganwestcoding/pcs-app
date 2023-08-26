@@ -58,7 +58,7 @@ const Search = () => {
         w-full 
         md:w-auto 
         py-2 
-        rounded-full 
+        rounded 
         shadow-sm 
         hover:shadow-md 
         transition 
@@ -112,8 +112,8 @@ const Search = () => {
           <div 
             className="
               p-2 
-              bg-rose-500 
-              rounded-full 
+              bg-gray-950 
+              rounded 
               text-white
             "
           >
