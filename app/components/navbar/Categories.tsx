@@ -6,6 +6,7 @@ import { TbMassage, TbEyeClosed } from 'react-icons/tb';
 import { 
   GiFingernail, 
 } from 'react-icons/gi';
+import {GiMoneyStack} from 'react-icons/gi';
 import { BiRun } from 'react-icons/bi';
 import { PiScissorsLight } from 'react-icons/pi';
 import { IoIosFitness } from 'react-icons/io';
@@ -55,6 +56,11 @@ export const categories = [
     label: 'Flexologist',
     icon: IoIosFitness,
     description: 'Flexologist services'
+  },
+  {
+    label: 'Price',
+    icon: GiMoneyStack, // Replace with your actual money icon component
+    description: 'Filter by price',
   }
 
 ]
