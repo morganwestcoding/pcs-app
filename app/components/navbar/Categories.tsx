@@ -79,7 +79,7 @@ const Categories = () => {
     <Container>
       <div
         className="
-          pt-4
+          pt-5
           flex 
           flex-row 
           items-center 
