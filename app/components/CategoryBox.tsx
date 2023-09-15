@@ -54,7 +54,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         p-2
         ease-in duration-150
         cursor-pointer
-        ${selected ? 'bg-white rounded-full p-2 border-3 drop-shadow-xl' : ''}
+        ${selected ? 'bg-white rounded-full p-2 border-3' : ''}
         hover:text-black
       `}
     >

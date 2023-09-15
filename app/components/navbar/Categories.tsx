@@ -77,10 +77,10 @@ const Categories = () => {
   return (
     <div className='bg-white pb-6'>
     <Container>
-      <div className=" flex flex-row items-center justify-between overflow-x-auto">
+      <div className=" flex flex-row items-center justify-between">
         {categories.map((item) => (
-           <div className={`${category === item.label ? 'bg-black p-2 rounded-b-full drop-shadow-lg' 
-                  : 'p-2 drop-shadow-lg'}`}>
+           <div className={`${category === item.label ? 'bg-black p-2 drop-shadow-lg rounded-b-full' 
+                  : 'p-2'}`}>
           <CategoryBox 
             key={item.label}
             label={item.label}
