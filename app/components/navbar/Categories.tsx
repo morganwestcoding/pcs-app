@@ -79,15 +79,14 @@ const Categories = () => {
     <Container>
       <div className=" flex flex-row items-center justify-between">
         {categories.map((item) => (
-           <div className={`${category === item.label ? 'bg-black p-2 drop-shadow-lg rounded-b-full' 
-                  : 'p-2'}`}>
+           
           <CategoryBox 
             key={item.label}
             label={item.label}
             icon={item.icon}
             selected={category === item.label}
           />
-          </div>
+         
         ))}
       </div>
     </Container>
