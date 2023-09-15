@@ -46,6 +46,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         <div 
           onClick={onRent}
           className="
+            bg-white
             hidden
             md:block
             text-sm 
@@ -63,6 +64,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         <div 
         onClick={toggleOpen}
         className="
+          bg-white
           p-4
           md:py-1
           md:px-2
