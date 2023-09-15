@@ -52,13 +52,13 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         items-center 
         justify-center 
         p-2
-        ease-in duration-150
+        ease-in-out duration-300
         cursor-pointer
         ${selected ? 'bg-white rounded-full p-2 border-3' : ''}
-        hover:text-black
+        hover:scale-110
       `}
     >
-      <Icon size={35} className={`${selected ? 'text-black' : 'text-gray-500'}`} />
+      <Icon size={35} className={`${selected ? 'text-black' : 'text-gray-500 hover:text-black'}`} />
       <div className="font-medium text-sm">
         {/*label*/}
       </div>
