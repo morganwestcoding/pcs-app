@@ -53,7 +53,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             font-semibold 
             py-3 
             px-4 
-            rounded 
+            rounded-full
             hover:bg-neutral-100 
             transition 
             cursor-pointer
@@ -66,7 +66,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         className="
           bg-white
           p-4
-          md:py-1
+          md:py-2
           md:px-2
           border-[1px] 
           border-neutral-200 
@@ -74,7 +74,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
           flex-row 
           items-center 
           gap-3 
-          rounded 
+          rounded-full
           cursor-pointer 
           hover:shadow-md 
           transition
