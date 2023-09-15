@@ -1,5 +1,5 @@
 'use client';
-
+import Navbar from './Navbar';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { ImScissors } from 'react-icons/im';
 import { TbMassage, TbEyeClosed } from 'react-icons/tb';
@@ -76,11 +76,12 @@ const Categories = () => {
   }
 
   return (
-    <div className={`${category ? 'bg-blue-500' : 'bg-white'} transition duration-150 ease-in-out`}>
+    <div className={`${category ? 'bg-blue-500' : 'bg-white'} transition duration-300 ease-in-out`}>
     <Container>
       <div
         className="
-          pb-4
+          pt-2
+          pb-2
           flex 
           flex-row 
           items-center 
