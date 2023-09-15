@@ -54,8 +54,8 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         p-2
         ease-in-out duration-300
         cursor-pointer
-        ${selected ? 'bg-white rounded-full p-2 border-3' : ''}
-        hover:scale-110
+        ${selected ? 'bg-white rounded-full p-2 border-3 transform -translate-y-2' : ''}
+      hover:text-black
       `}
     >
       <Icon size={35} className={`${selected ? 'text-black' : 'text-gray-500 hover:text-black'}`} />
