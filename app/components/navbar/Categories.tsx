@@ -76,6 +76,7 @@ const Categories = () => {
   }
 
   return (
+    <div className={`${category ? 'bg-blue-500' : 'bg-white'}`}>
     <Container>
       <div
         className="
@@ -97,6 +98,7 @@ const Categories = () => {
         ))}
       </div>
     </Container>
+    </div>
   );
 }
  
