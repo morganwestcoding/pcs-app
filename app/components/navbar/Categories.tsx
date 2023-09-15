@@ -76,26 +76,18 @@ const Categories = () => {
   }
 
   return (
-    <div className={`${category ? 'bg-blue-500' : 'bg-white'} transition duration-300 ease-in-out`}>
+    <div className='bg-white'>
     <Container>
-      <div
-        className="
-          pt-2
-          pb-2
-          flex 
-          flex-row 
-          items-center 
-          justify-between
-          overflow-x-auto
-        "
-      >
+      <div className="p-2 flex flex-row items-center justify-between overflow-x-auto">
         {categories.map((item) => (
+           <div className={`${category === item.label ? 'bg-black p-2 rounded-full' : ''}`}>
           <CategoryBox 
             key={item.label}
             label={item.label}
             icon={item.icon}
             selected={category === item.label}
           />
+          </div>
         ))}
       </div>
     </Container>
