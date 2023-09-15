@@ -47,6 +47,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     <div
       onClick={handleClick}
       className={`
+        pt-6
         flex 
         flex-col 
         items-center 
@@ -55,7 +56,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         p-3
         transition
         cursor-pointer
-        ${selected ? 'bg-white rounded-b-lg p-2 border-t-8 border-blue-500' : ''}
+        ${selected ? 'bg-white rounded-b-lg p-2 border-6 border-t-white drop-shadow-xl' : ''}
         hover:text-black
       `}
     >
