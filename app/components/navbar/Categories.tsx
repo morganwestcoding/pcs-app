@@ -76,7 +76,7 @@ const Categories = () => {
   }
 
   return (
-    <div className={`${category ? 'bg-blue-500' : 'bg-white'}`}>
+    <div className={`${category ? 'bg-blue-500' : 'bg-white'} transition duration-150 ease-in-out`}>
     <Container>
       <div
         className="
