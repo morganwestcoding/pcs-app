@@ -75,7 +75,7 @@ const Categories = () => {
   }
 
   return (
-    <div className='bg-white  pt-4 pb-6'>
+    <div className='bg-white  pt-4'>
     <Container>
       <div className=" flex flex-row items-center justify-between">
         {categories.map((item) => (
