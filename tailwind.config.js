@@ -9,6 +9,15 @@ module.exports = {
     extend: {
       colors: {
         'blue-500': '#c49a6c', // Example blue color, adjust as needed
+      },
+      borderRadius: {
+        almond: '50% 50%',
+      },
+      width: {
+        almond: '100px'
+      },
+      height: {
+        almond: '70px'
       }
     },
   },
