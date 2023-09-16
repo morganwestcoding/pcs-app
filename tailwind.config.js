@@ -10,14 +10,23 @@ module.exports = {
       colors: {
         'blue-500': '#c49a6c', // Example blue color, adjust as needed
       },
+      position: {
+        position: 'absolute',
+      },
       borderRadius: {
-        almond: '50% 50%',
+        bubble: '50%',
       },
       width: {
-        almond: '100px'
+        bubble: '70px',
       },
       height: {
-        almond: '70px'
+        bubble: '70px',
+      },
+      left: {
+        bubble: "50px",
+      },
+      transform: {
+        bubble: "translateX(-50%);"
       }
     },
   },
