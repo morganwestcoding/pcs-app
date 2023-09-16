@@ -45,6 +45,20 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
 
   return ( 
     <div
+    onClick={handleClick}
+    className={`
+        flex 
+        flex-col 
+        items-center 
+        justify-center 
+        p-2
+        ease-in-out duration-300
+        cursor-pointer
+        ${selected ? 'bg-black rounded-b-full transform -translate-y-7 drop-shadow-lg w-24 ' : ''}
+      hover:text-black
+      `}
+      >
+    <div
       onClick={handleClick}
       className={`
         flex 
@@ -54,14 +68,15 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         p-2
         ease-in-out duration-300
         cursor-pointer
-        ${selected ? 'bg-white rounded-full p-2 border-3 transform -translate-y-3' : ''}
+        ${selected ? 'bg-white rounded-full p-2 border-3 transform -translate-y-3 drop-shadow-lg ' : ''}
       hover:text-black
       `}
     >
-      <Icon size={35} className={`${selected ? 'text-black' : 'text-gray-500 hover:text-black'}`} />
+      <Icon size={30} className={`${selected ? 'text-black' : 'text-gray-500 hover:text-black'}`} />
       <div className="font-medium text-sm">
         {/*label*/}
       </div>
+    </div>
     </div>
    );
 }
