@@ -1,129 +1,35 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
 import { BiSearch } from 'react-icons/bi';
-import { differenceInDays } from 'date-fns';
-
-import useSearchModal from '@/app/hooks/useSearchModal';
-import useCountries from '@/app/hooks/useCountries';
+import { useState } from 'react';
 
 const Search = () => {
-  const searchModal = useSearchModal();
-  const params = useSearchParams();
-  const { getByValue } = useCountries();
+    const [isExtended, setIsExtended] = useState(false);
 
-  const  locationValue = params?.get('locationValue'); 
-  const  startDate = params?.get('startDate');
-  const  endDate = params?.get('endDate');
-  const  guestCount = params?.get('guestCount');
+    const toggleSearchBar = () => {
+        setIsExtended(!isExtended);
+    };
 
-  const locationLabel = useMemo(() => {
-    if (locationValue) {
-      return getByValue(locationValue as string)?.label;
-    }
+    return (
+        <div className="relative flex items-center justify-center border-2 border-black w-16 h-16">
+            {/* White Circle / Search Bar Background */}
+            <div 
+                className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-white transition-all duration-300 z-10 border-2 border-black ${isExtended ? 'w-64 h-12' : 'w-12 h-12'}`}
+            >
+                {isExtended && (
+                    <input type="text" placeholder="Search..." className="bg-transparent w-full h-full px-4" />
+                )}
+            </div>
 
-    return 'Where';
-  }, [locationValue, getByValue]);
-
-  const durationLabel = useMemo(() => {
-    if (startDate && endDate) {
-      const start = new Date(startDate as string);
-      const end = new Date(endDate as string);
-      let diff = differenceInDays(end, start);
-
-      if (diff === 0) {
-        diff = 1;
-      }
-
-      return `${diff} Days`;
-    }
-
-    return 'When'
-  }, [startDate, endDate]);
-
-  const guestLabel = useMemo(() => {
-    if (guestCount) {
-      return `${guestCount} Guests`;
-    }
-
-    return 'Book today';
-  }, [guestCount]);
-
-  return ( 
-    <div
-      onClick={searchModal.onOpen}
-      className="
-        bg-white
-        border-[1px] 
-        w-full 
-        md:w-auto 
-        py-2 
-        rounded-full 
-        shadow-sm 
-        hover:shadow-md 
-        transition 
-        cursor-pointer
-      "
-    >
-      <div 
-        className="
-          flex 
-          flex-row 
-          items-center 
-          justify-between
-        "
-      >
-        <div 
-          className="
-            text-sm 
-            font-semibold 
-            px-6
-          "
-        >
-          {locationLabel}
+            {/* Black Circle with Search Icon */}
+            <div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-black w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-2 border-blue-500" 
+                onClick={toggleSearchBar}
+            >
+                <BiSearch className="text-white" />
+            </div>
         </div>
-        <div 
-          className="
-            hidden 
-            sm:block 
-            text-sm 
-            font-semibold 
-            px-6 
-            border-x-[1px] 
-            flex-1 
-            text-center
-          "
-        >
-          {durationLabel}
-        </div>
-        <div 
-          className="
-            text-sm 
-            pl-6 
-            pr-2 
-            text-gray-600 
-            flex 
-            flex-row 
-            items-center 
-            gap-3
-          "
-        >
-          <div className="hidden sm:block">{guestLabel}</div>
-          <div 
-            className="
-              p-2 
-              bg-gray-950 
-              rounded-full 
-              text-white
-            "
-          >
-            <BiSearch size={20} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
- 
+    );
+};
+
 export default Search;
