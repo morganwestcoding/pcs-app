@@ -17,7 +17,7 @@ const Navbar: React.FC<NavbarProps> = ({
     <div className="fixed w-full bg-black z-12 shadow-sm">
       <div
         className="
-          py-6 
+          py-2 
         "
       >
       <Container>

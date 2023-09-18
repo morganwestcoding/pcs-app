@@ -59,7 +59,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       `}
     >
       <Icon size={30} className={`${selected ? 'text-black' : 'text-gray-500 hover:text-black'}`} />
-      <div className="font-medium text-sm">
+      <div className="pt-2 font-medium text-sm">
         {label}
       </div>
     </div>
