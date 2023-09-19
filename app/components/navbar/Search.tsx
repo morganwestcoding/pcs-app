@@ -24,7 +24,7 @@ const Search = () => {
 
             {/* Black Circle with Search Icon - Moves to Right of Extended White Circle */}
             <div 
-                className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full bg-black w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-2 border-blue-500 transition-all duration-300" 
+                className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full bg-red w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-2 border-blue-500 transition-all duration-300" 
                 style={{ left: isExtended ? 'calc(100% - -7px + 64px)' : '50%' }}
                 onClick={toggleSearchBar}
             >
