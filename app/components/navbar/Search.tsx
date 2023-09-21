@@ -11,7 +11,7 @@ const Search = () => {
     };
 
     return (
-        <div className="relative flex items-center justify-center border-2 border-black w-16 h-16">
+        <div className="relative flex items-center justify-center border-4 border-black w-16 h-16">
             
             {/* White Circle / Search Bar Background */}
             <div 
