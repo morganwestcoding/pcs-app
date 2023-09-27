@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { GoPlusCircle } from "react-icons/go";
+import { PiPlusLight } from "react-icons/pi";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -53,16 +53,15 @@ const UserMenu: React.FC<UserMenuProps> = ({
             border-[.25px] border-black
             text-sm 
             font-semibold 
-            
-            w-9 
-            h-9 
+            w-11 
+            h-11
             rounded-full
             hover:bg-neutral-100 
             transition 
             cursor-pointer
           "
         >
-          <GoPlusCircle className="text-black"/>
+          <PiPlusLight className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full bg-white w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-[3px] border-blue-500 transition-all duration-300"/>
         </div>
         <div 
         onClick={toggleOpen}
