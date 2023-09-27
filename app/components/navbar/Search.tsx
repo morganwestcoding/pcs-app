@@ -11,11 +11,11 @@ const Search = () => {
     };
 
     return (
-        <div className="relative flex items-center justify-center border-4 border-black w-16 h-16">
+        <div className="relative flex items-center justify-center w-16 h-16">
             
             {/* White Circle / Search Bar Background */}
             <div 
-                className={`absolute top-1/2 right-1/5 transform -translate-y-1/2 ${isExtended ? 'w-64' : 'w-12'} h-12 rounded-full bg-white transition-all duration-300 z-10 border-2 border-black`}
+                className={`absolute top-1/2 right-1/5 transform -translate-y-1/2 ${isExtended ? 'w-64' : 'w-12'} h-12 rounded-full bg-white transition-all duration-300 z-10 border-[.25px] border-black`}
             >
                 {isExtended && (
                     <input type="text" placeholder="Search..." className="bg-transparent w-full h-full px-4" />
@@ -24,11 +24,11 @@ const Search = () => {
 
             {/* Black Circle with Search Icon - Moves to Right of Extended White Circle */}
             <div 
-                className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full bg-black w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-2 border-blue-500 transition-all duration-300" 
+                className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full bg-white w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-[3px] border-blue-500 transition-all duration-300" 
                 style={{ left: isExtended ? 'calc(100% - -7px + 64px)' : '50%' }}
                 onClick={toggleSearchBar}
             >
-                <BiSearch className="text-white" />
+                <BiSearch className="text-black" />
             </div>
         </div>
     );
