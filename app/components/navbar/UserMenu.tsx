@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { BiSearch } from "react-icons/bi";
+import { BiPlus } from "react-icons/bi";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -50,7 +50,12 @@ const UserMenu: React.FC<UserMenuProps> = ({
             relative w-12 h-12 rounded-full bg-white transition-all duration-300 z-10 border-[.25px] border-black
           "
         >
-          <BiSearch className="absolute rounded-full top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-9 h-9 border-[3px] border-blue-500"/>
+          <div 
+                className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full bg-white w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-[3px] border-blue-500 transition-all duration-300" 
+                
+            >
+          <BiPlus className="text-black"/>
+          </div>
         </div>
         <div 
         onClick={toggleOpen}
