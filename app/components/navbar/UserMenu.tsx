@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { GoPlusCircle } from "react-icons/go";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -49,17 +50,19 @@ const UserMenu: React.FC<UserMenuProps> = ({
             bg-white
             hidden
             md:block
+            border-[.25px] border-black
             text-sm 
             font-semibold 
-            py-3 
-            px-4 
+            
+            w-9 
+            h-9 
             rounded-full
             hover:bg-neutral-100 
             transition 
             cursor-pointer
           "
         >
-          Add your space
+          <GoPlusCircle className="text-black"/>
         </div>
         <div 
         onClick={toggleOpen}
