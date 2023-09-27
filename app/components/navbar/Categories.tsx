@@ -17,7 +17,7 @@ import Container from '../Container';
 
 export const categories = [
   {
-    label: 'Nail Tech',
+    label: 'Nails',
     icon: GiFingernail,
     description: 'Nail technician services',
   },
@@ -27,32 +27,32 @@ export const categories = [
     description: 'Barber services',
   },
   {
-    label: 'Hair dresser',
+    label: 'Salon',
     icon: PiScissorsLight,
     description: 'Hair dresser services'
   },
   {
-    label: 'Masseuse',
+    label: 'Massage',
     icon: TbMassage,
     description: 'Massueuse Services'
   },
   {
-    label: 'Eye brows',
+    label: 'Eyebrows',
     icon: TbEyeClosed,
     description: 'Eye brow services'
   },
   {
-    label: 'Dermatoligist',
+    label: 'Facial',
     icon: MdFaceRetouchingNatural,
     description: 'Dermatologist services'
   },
   {
-    label: 'Personal trainer',
+    label: 'Trainer',
     icon: BiRun,
     description: 'Personal trainer servies'
   },
   {
-    label: 'Flexologist',
+    label: 'Flex',
     icon: IoIosFitness,
     description: 'Flexologist services'
   },

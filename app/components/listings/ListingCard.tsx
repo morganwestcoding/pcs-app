@@ -97,6 +97,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
             src={data.imageSrc}
             alt="Listing"
           />
+          
           <div className="
             absolute
             top-3
@@ -108,10 +109,13 @@ const ListingCard: React.FC<ListingCardProps> = ({
             />
           </div>
         </div>
-        <div className="font-semibold text-lg">
+        <div className="mt-2 text-lg font-semibold">
+          {data.title}
+          </div>
+        <div className="font-light text-neutral-500">
           {location?.region}, {location?.label}
         </div>
-        <div className="font-light text-neutral-500">
+        <div className="text-sm font-light text-neutral-500">
           {reservationDate || data.category}
         </div>
         <div className="flex flex-row items-center gap-1">
