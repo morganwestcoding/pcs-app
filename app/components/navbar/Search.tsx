@@ -15,7 +15,7 @@ const Search = () => {
             
             {/* White Circle / Search Bar Background */}
             <div 
-                className={`absolute top-1/2 right-1/5 transform -translate-y-1/2 ${isExtended ? 'w-64' : 'w-12'} h-12 rounded-full bg-white transition-all duration-300 z-10 border-[.25px] border-black`}
+                className={`absolute top-1/2 right-1/5 transform -translate-y-1/2 ${isExtended ? 'w-64' : 'w-12'} h-12 rounded-full bg-white transition-all duration-300 z-10 border-[2px] border-neutral-200`}
             >
                 {isExtended && (
                     <input type="text" placeholder="Search..." className="bg-transparent w-full h-full px-4" />
