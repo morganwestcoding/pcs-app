@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { PiPlusLight } from "react-icons/pi";
+import { BiSearch } from "react-icons/bi";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -47,21 +47,10 @@ const UserMenu: React.FC<UserMenuProps> = ({
         <div 
           onClick={onRent}
           className="
-            bg-white
-            hidden
-            md:block
-            border-[.25px] border-black
-            text-sm 
-            font-semibold 
-            w-11 
-            h-11
-            rounded-full
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
+            relative w-12 h-12 rounded-full bg-white transition-all duration-300 z-10 border-[.25px] border-black
           "
         >
-          <PiPlusLight className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full bg-white w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-[3px] border-blue-500 transition-all duration-300"/>
+          <BiSearch className="absolute rounded-full top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-9 h-9 border-[3px] border-blue-500"/>
         </div>
         <div 
         onClick={toggleOpen}
