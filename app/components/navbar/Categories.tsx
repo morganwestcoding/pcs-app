@@ -2,7 +2,9 @@
 import { usePathname, useSearchParams } from 'next/navigation';
 import { ImScissors } from 'react-icons/im';
 import { TbMassage, TbEyeClosed } from 'react-icons/tb';
-import nailsImage from '../../public/images/nails.jpg';
+import { 
+  GiFingernail, 
+} from 'react-icons/gi';
 import {GiMoneyStack} from 'react-icons/gi';
 import { BiRun } from 'react-icons/bi';
 import { PiScissorsLight } from 'react-icons/pi';
@@ -16,7 +18,7 @@ import Container from '../Container';
 export const categories = [
   {
     label: 'Nails',
-    icon: nailsImage,
+    icon: GiFingernail,
     description: 'Nail technician services',
   },
   {
