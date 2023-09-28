@@ -55,11 +55,6 @@ export const categories = [
     label: 'Flex',
     icon: IoIosFitness,
     description: 'Flexologist services'
-  },
-  {
-    label: 'Price',
-    icon: GiMoneyStack, // Replace with your actual money icon component
-    description: 'Filter by price',
   }
 
 ]
