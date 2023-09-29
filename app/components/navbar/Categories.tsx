@@ -5,7 +5,6 @@ import { TbMassage, TbEyeClosed } from 'react-icons/tb';
 import { 
   GiFingernail, 
 } from 'react-icons/gi';
-import {GiMoneyStack} from 'react-icons/gi';
 import { BiRun } from 'react-icons/bi';
 import { PiScissorsLight } from 'react-icons/pi';
 import { IoIosFitness } from 'react-icons/io';
@@ -19,11 +18,13 @@ export const categories = [
   {
     label: 'Nails',
     icon: GiFingernail,
+    image:'/images/nails.jpg',
     description: 'Nail technician services',
   },
   {
     label: 'Barber',
     icon: ImScissors,
+    image:'/images/nails.jpg',
     description: 'Barber services',
   },
   {
@@ -70,7 +71,7 @@ const Categories = () => {
   }
 
   return (
-    <div className='bg-white pt-4'>
+    <div className='bg-white'>
     <Container>
       <div className=" flex flex-row items-center justify-between">
         {categories.map((item) => (
@@ -79,6 +80,7 @@ const Categories = () => {
             key={item.label}
             label={item.label}
             icon={item.icon}
+            image={item.image}
             selected={category === item.label}
           />
          

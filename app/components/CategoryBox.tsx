@@ -8,12 +8,14 @@ import { IconType } from "react-icons";
 interface CategoryBoxProps {
   icon: IconType,
   label: string;
+  image?: string;  // Add this line to define the image prop
   selected?: boolean;
 }
 
 const CategoryBox: React.FC<CategoryBoxProps> = ({
   icon: Icon,
   label,
+  image,  // Add this line to destructure the image prop
   selected,
 }) => {
   const router = useRouter();
@@ -43,9 +45,17 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     router.push(url);
   }, [label, router, params]);
 
-  return ( 
+  // Define a style object to set the background image
+  const style = {
+    backgroundImage: image ? `url('${image}')` : undefined,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  };
+
+  return (
     <div
       onClick={handleClick}
+      style={style}  // Add this line to apply the style object to your div
       className={`
         flex 
         flex-col 
@@ -63,7 +73,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         {label}
       </div>
     </div>
-   );
+  );
 }
  
 export default CategoryBox;
