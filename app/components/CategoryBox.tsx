@@ -60,16 +60,29 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         flex 
         flex-col 
         items-center 
-        justify-center 
-        p-4
-        ease-in-out duration-300
+        justify-center
+        rounded-lg
+        w-52  // Width set to 10rem
+        h-16  // Height set to 10rem
+        bg-cover 
+        bg-center 
+        filter grayscale 
+        shadow-xl
+         py-4
+        
+        transition-all ease-in-out duration-300
+        hover:filter-none
+
+        ${selected ? 'p-4 bg-white rounded-xl border-3 transform -translate-y-2 shadow-2xl' : ''}
+        hover:text-black
         cursor-pointer
-        ${selected ? 'p-4 bg-white rounded-xl border-3 transform -translate-y-2 drop-shadow-lg ' : ''}
-      hover:text-black
+        transition-all
+        ease-in-out 
+        duration-300
       `}
     >
-      <Icon size={30} className={`${selected ? 'text-black' : 'text-gray-500 hover:text-black'}`} />
-      <div className="pt-2 font-medium text-sm">
+      {/*<Icon size={30} className={`${selected ? 'text-white' : 'text-white'}`} />*/}
+      <div className="pt-2 font-medium text-medium text-white">
         {label}
       </div>
     </div>

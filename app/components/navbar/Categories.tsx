@@ -30,31 +30,37 @@ export const categories = [
   {
     label: 'Salon',
     icon: PiScissorsLight,
+    image:'/images/nails.jpg',
     description: 'Hair dresser services'
   },
   {
     label: 'Massage',
     icon: TbMassage,
+    image:'/images/nails.jpg',
     description: 'Massueuse Services'
   },
   {
     label: 'Eyebrows',
     icon: TbEyeClosed,
+    image:'/images/nails.jpg',
     description: 'Eye brow services'
   },
   {
     label: 'Facial',
     icon: MdFaceRetouchingNatural,
+    image:'/images/nails.jpg',
     description: 'Dermatologist services'
   },
   {
     label: 'Trainer',
     icon: BiRun,
+    image:'/images/nails.jpg',
     description: 'Personal trainer servies'
   },
   {
     label: 'Flex',
     icon: IoIosFitness,
+    image:'/images/nails.jpg',
     description: 'Flexologist services'
   }
 
@@ -73,7 +79,7 @@ const Categories = () => {
   return (
     <div className='bg-white'>
     <Container>
-      <div className=" flex flex-row items-center justify-between">
+      <div className="flex flex-row items-stretch justify-between gap-0">
         {categories.map((item) => (
            
           <CategoryBox 
