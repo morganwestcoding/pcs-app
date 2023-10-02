@@ -68,12 +68,12 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         bg-center 
         filter grayscale 
         shadow-xl
-         py-4
+        py-4
         
         transition-all ease-in-out duration-300
         hover:filter-none
 
-        ${selected ? 'p-4 bg-white rounded-xl border-3 transform -translate-y-2 shadow-2xl' : ''}
+        ${selected ? 'p-4 bg-white rounded-xl border-3 transform -translate-y-2 shadow-xl' : ''}
         hover:text-black
         cursor-pointer
         transition-all
