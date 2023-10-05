@@ -55,34 +55,18 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   return (
     <div
       onClick={handleClick}
-      style={style}  // Add this line to apply the style object to your div
-      className={`
-        flex 
-        flex-col 
-        items-center 
-        justify-center
-        rounded-lg
-        w-52  // Width set to 10rem
-        h-16  // Height set to 10rem
-        bg-cover 
-        bg-center 
-        filter grayscale 
-        shadow-xl
-        py-4
-        
-        transition-all ease-in-out duration-300
-        hover:filter-none
-
-        ${selected ? 'p-4 bg-white rounded-xl border-3 transform -translate-y-2 shadow-xl' : ''}
-        hover:text-black
-        cursor-pointer
-        transition-all
+      style={style} 
+            className={`
+        tab 
+        ${selected ? 'active' : ''} 
+        transition-all 
         ease-in-out 
         duration-300
+        cursor-pointer
       `}
     >
       {/*<Icon size={30} className={`${selected ? 'text-white' : 'text-white'}`} />*/}
-      <div className="pt-2 font-medium text-medium text-white">
+      <div className="label">
         {label}
       </div>
     </div>
