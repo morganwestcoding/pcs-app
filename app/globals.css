@@ -26,47 +26,43 @@ body,
 
 /* Custom styles for CategoryBox */
 .tab {
-    margin-top: -1rem;
-      /* Adjusted to match overlapping effect */
-      transform: scaleY(-1);
-      /* Flip tabs upside down */
-      border: 1px solid #ddd;
-      /* Border styling */
-      border-radius: 12px 12px 0 0;
-      /* Rounded corners at the top */
-      padding: 16px 32px;
-      /* Adjusted padding to match size */
-      background-color: #f0f0f0;
-      /* Background color */
-      cursor: pointer;
-      width: 200px;
-      /* Assumed width to match size */
-      text-align: center;
-      /* Center the text within the tab */
-  }
+  margin-top: 0;
+  transform: scaleY(-1);
+  border: 1px solid #ddd;
+  border-radius: 12px 12px 0 0;
+  padding: 16px 32px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  width: 200px;
+  text-align: center;
+  position: relative;
+  margin-left: -45px;
+  /* Adjust this value to achieve the desired overlap */
+  z-index: 10;
+}
+
+.tab:first-child {
+  margin-left: 80px;
+  /* Reset the negative margin for the first tab */
+}
 
 .tab.active {
-    border-color: #333;
-      /* Active tab border color */
-      background-color: #fff;
-      /* Active tab background color */
-  }
+  border-color: #333;
+  background-color: #fff;
+  z-index: 30;
+  /* Ensure active tab is on top */
+}
 
 .tab .label {
   margin-left: 10px;
 }
 
 .label {
+  font-size: 1rem;
   transform: scaleY(-1);
-    /* Flip label text to display right-side up */
-    font-size: 1rem;
-    /* Adjusted font-size to match */
-  }
-  
-    .tabs-container {
-      display: flex;
-      gap: 1rem;
-      /* Adjust the gap to match distance between tabs */
-      justify-content: center;
-      /* Center the tabs */
-    }
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: center;
+}

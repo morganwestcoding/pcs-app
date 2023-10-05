@@ -18,37 +18,37 @@ export const categories = [
   {
     label: 'Nails',
     icon: GiFingernail,
-    image:'/images/nails.jpg',
+    backgroundColor:'#ff0000',
     description: 'Nail technician services',
   },
   {
     label: 'Barber',
     icon: ImScissors,
-    image:'/images/nails.jpg',
+    backgroundColor:'#00b1ff',
     description: 'Barber services',
   },
   {
     label: 'Salon',
     icon: PiScissorsLight,
-    image:'/images/nails.jpg',
+    backgroundColor:'#00cc16',
     description: 'Hair dresser services'
   },
   {
     label: 'Massage',
     icon: TbMassage,
-    image:'/images/nails.jpg',
+    backgroundColor:'#1b00ff',
     description: 'Massueuse Services'
   },
   {
     label: 'Eyebrows',
     icon: TbEyeClosed,
-    image:'/images/nails.jpg',
+    backgroundColor:'#5800e6',
     description: 'Eye brow services'
   },
   {
     label: 'Facial',
     icon: MdFaceRetouchingNatural,
-    image:'/images/nails.jpg',
+    backgroundColor:'#e67900',
     description: 'Dermatologist services'
   },
   {
@@ -79,7 +79,7 @@ const Categories = () => {
   return (
     <div className='bg-white'>
     <Container>
-      <div className="flex flex-row items-stretch justify-between gap-0">
+      <div className="flex flex-row items-stretch gap-20">
         {categories.map((item) => (
            
           <CategoryBox 
@@ -87,6 +87,7 @@ const Categories = () => {
             label={item.label}
             icon={item.icon}
             image={item.image}
+            backgroundColor={item.backgroundColor}
             selected={category === item.label}
           />
          
