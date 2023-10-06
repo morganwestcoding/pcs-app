@@ -47,13 +47,6 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       currentQuery = qs.parse(params.toString());
     }
 
-      if (onSelectColor) {
-      onSelectColor(backgroundColor || 'transparent');
-    }
-  
-
-    
-
     const updatedQuery: any = {
       ...currentQuery,
       category: label
@@ -61,9 +54,17 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
 
     if (params?.get('category') === label) {
       delete updatedQuery.category;
-    }
 
-    
+      // Clear the border color when tab is deselected
+      if (onSelectColor) {
+        onSelectColor('');
+      }
+    } else {
+      // Set the border color when tab is selected
+      if (onSelectColor) {
+        onSelectColor(backgroundColor || 'transparent');
+      }
+    }
 
     const url = qs.stringifyUrl({
       url: '/',
@@ -71,13 +72,13 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     }, { skipNull: true });
 
     router.push(url);
-  }, [label, router, params, backgroundColor]);
+}, [label, router, params, backgroundColor, onSelectColor]);
 
   // Define a style object to set the background image
   const style = {
     backgroundImage: image ? `url('${image}')` : undefined,
     backgroundColor: !image ? backgroundColor : undefined,
-    borderTop: selected ? `3px solid ${borderTopColor}` : undefined, 
+    border: 'none',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   };
@@ -88,13 +89,11 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       style={style} 
             className={`
         tab 
-       ${selected ? 'active z-20' : 'z-10'} 
+       ${selected ? 'active z-20 drop-shadow-xl transform -translate-y-2' : 'z-10'}
         transition-all 
         ease-in-out 
         duration-300
-        drop-shadow-xl
         cursor-pointer
-        relative  // <-- added relative positioning
         mr-[-30px]  // <-- added negative margin to create overlap
       `}
     >

@@ -2,35 +2,36 @@
 
 import Select from 'react-select'
 
-import useCountries from '@/app/hooks/useCountries';
-
-export type CountrySelectValue = {
-  flag: string;
-  label: string;
-  latlng: number[],
-  region: string;
-  value: string
+export type CitySelectValue
+ = {
+label: string;
+value: string;
 }
 
-interface CountrySelectProps {
-  value?: CountrySelectValue;
-  onChange: (value: CountrySelectValue) => void;
+interface CitySelectProps {
+  value?: CitySelectValue
+  ;
+  onChange: (value: CitySelectValue
+    ) => void;
 }
 
-const CountrySelect: React.FC<CountrySelectProps> = ({
+const CitySelect: React.FC<CitySelectProps> = ({
   value,
   onChange
 }) => {
-  const { getAll } = useCountries();
+  const californiaCities = [
+    { label: "Los Angeles", value: "Los Angeles" },
+  ];
 
   return ( 
     <div>
       <Select
-        placeholder="Anywhere"
+        placeholder="Any City in California"
         isClearable
-        options={getAll()}
+        options={californiaCities}
         value={value}
-        onChange={(value) => onChange(value as CountrySelectValue)}
+        onChange={(value) => onChange(value as CitySelectValue
+          )}
         formatOptionLabel={(option: any) => (
           <div className="
           flex flex-row items-center gap-3">
@@ -62,4 +63,4 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
    );
 }
  
-export default CountrySelect;
+export default CitySelect;

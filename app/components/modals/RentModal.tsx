@@ -180,30 +180,29 @@ const RentModal = () => {
       <div className="flex flex-col gap-8">
         <Heading
           title="Share some basics about your place"
-          subtitle="What amenitis do you have?"
+          subtitle="What services do you offer?"
         />
-        <Counter 
-          onChange={(value) => setCustomValue('guestCount', value)}
-          value={guestCount}
-          title="Guests" 
-          subtitle="How many guests do you allow?"
-        />
-        <hr />
-        <Counter 
-          onChange={(value) => setCustomValue('roomCount', value)}
-          value={roomCount}
-          title="Rooms" 
-          subtitle="How many rooms do you have?"
-        />
-        <hr />
-        <Counter 
-          onChange={(value) => setCustomValue('bathroomCount', value)}
-          value={bathroomCount}
-          title="Bathrooms" 
-          subtitle="How many bathrooms do you have?"
-        />
+        {Array.from({ length: 8 }).map((_, index) => (
+          <div key={index} className="flex gap-4">
+            <Input
+              id={`services[${index}].name`}
+              label={`Service ${index + 1}`}
+              disabled={isLoading}
+              register={register}
+              errors={errors}
+            />
+            <Input
+              id={`services[${index}].price`}
+              label="Price"
+              type="number"
+              disabled={isLoading}
+              register={register}
+              errors={errors}
+            />
+          </div>
+        ))}
       </div>
-    )
+    );
   }
 
   if (step === STEPS.IMAGES) {

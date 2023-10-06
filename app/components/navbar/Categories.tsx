@@ -19,49 +19,49 @@ export const categories = [
   {
     label: 'Nails',
     icon: GiFingernail,
-    backgroundColor:'#ff0000',
+    backgroundColor:'#c49a6c',
     description: 'Nail technician services',
   },
   {
     label: 'Barber',
     icon: ImScissors,
-    backgroundColor:'#00b1ff',
+    backgroundColor:'#b08b61',
     description: 'Barber services',
   },
   {
     label: 'Salon',
     icon: PiScissorsLight,
-    backgroundColor:'#00cc16',
+    backgroundColor:'#9d7b56',
     description: 'Hair dresser services'
   },
   {
     label: 'Massage',
     icon: TbMassage,
-    backgroundColor:'#1b00ff',
+    backgroundColor:'#896c4c',
     description: 'Massueuse Services'
   },
   {
     label: 'Eyebrows',
     icon: TbEyeClosed,
-    backgroundColor:'#5800e6',
+    backgroundColor:'#765c41',
     description: 'Eye brow services'
   },
   {
     label: 'Facial',
     icon: MdFaceRetouchingNatural,
-    backgroundColor:'#e67900',
+    backgroundColor:'#624d36',
     description: 'Dermatologist services'
   },
   {
     label: 'Trainer',
     icon: BiRun,
-    image:'/images/nails.jpg',
+    backgroundColor:'#4e3e2b',
     description: 'Personal trainer servies'
   },
   {
     label: 'Flex',
     icon: IoIosFitness,
-    image:'/images/nails.jpg',
+    backgroundColor:'#3b2e20',
     description: 'Flexologist services'
   }
 
@@ -78,17 +78,21 @@ const Categories = () => {
     return null;
   }
 
+  const containerStyle = selectedColor 
+    ? { borderTop: `6px solid ${selectedColor}`, marginTop: '-6px' }
+    : { borderTop: '6px solid transparent', marginTop: '-6px' };
+
+
   return (
-    <div className='bg-white' style={{borderTop: `3px solid ${selectedColor}`}}>
+    <div className='bg-white' style={containerStyle}>
     <Container>
-      <div className="flex flex-row items-stretch gap-20">
+      <div className="flex flex-row items-stretch gap-20 ">
         {categories.map((item) => (
            
           <CategoryBox 
             key={item.label}
             label={item.label}
             icon={item.icon}
-            image={item.image}
             backgroundColor={item.backgroundColor}
             onSelectColor={setSelectedColor}
             selected={category === item.label}
