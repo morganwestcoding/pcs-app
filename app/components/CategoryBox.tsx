@@ -62,7 +62,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     } else {
       // Set the border color when tab is selected
       if (onSelectColor) {
-        onSelectColor(backgroundColor || 'transparent');
+        onSelectColor('black' || 'transparent');
       }
     }
 
@@ -77,7 +77,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   // Define a style object to set the background image
   const style = {
     backgroundImage: image ? `url('${image}')` : undefined,
-    backgroundColor: !image ? backgroundColor : undefined,
+    backgroundColor: selected ? 'black' : !image ? backgroundColor : undefined,
     border: 'none',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -89,16 +89,15 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       style={style} 
             className={`
         tab 
-       ${selected ? 'active z-20 drop-shadow-xl transform -translate-y-2' : 'z-10'}
+       ${selected ? 'drop-shadow-xl' : ''}
         transition-all 
         ease-in-out 
-        duration-300
         cursor-pointer
         mr-[-30px]  // <-- added negative margin to create overlap
       `}
     >
       {/*<Icon size={30} className={`${selected ? 'text-white' : 'text-white'}`} />*/}
-      <div className="label font-medium text-white">
+      <div className="label font-semibold text-white">
         {label}
       </div>
     </div>

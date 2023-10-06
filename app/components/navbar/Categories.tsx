@@ -78,9 +78,11 @@ const Categories = () => {
     return null;
   }
 
-  const containerStyle = selectedColor 
-    ? { borderTop: `6px solid ${selectedColor}`, marginTop: '-6px' }
-    : { borderTop: '6px solid transparent', marginTop: '-6px' };
+  const containerStyle = {
+    borderBottom: `6px solid ${selectedColor || 'transparent'}`,
+    marginBottom: '-6px',
+    transition: 'border-bottom-color 0.3s ease-in-out'  // Add the transition effect here
+};
 
 
   return (
