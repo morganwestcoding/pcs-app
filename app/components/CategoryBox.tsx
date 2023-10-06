@@ -10,8 +10,10 @@ interface CategoryBoxProps {
   icon: IconType,
   label: string;
   image?: string;
-  backgroundColor?: string;  // Add this line to define the image prop
+  backgroundColor?: string;
+  borderTopColor?: string;  // Add this line to define the image prop
   selected?: boolean;
+  onSelectColor?: (color: string) => void; 
 }
 
 interface TabsContainerProps {
@@ -30,7 +32,9 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   icon: Icon,
   label,
   image, // Add this line to destructure the image prop
-  backgroundColor,  // Destructure the new prop
+  backgroundColor,
+  borderTopColor,  // <-- Destructure this prop here
+  onSelectColor,  // Destructure the new prop  // Destructure the new prop
   selected,
 }) => {
   const router = useRouter();
@@ -40,8 +44,15 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     let currentQuery = {};
     
     if (params) {
-      currentQuery = qs.parse(params.toString())
+      currentQuery = qs.parse(params.toString());
     }
+
+      if (onSelectColor) {
+      onSelectColor(backgroundColor || 'transparent');
+    }
+  
+
+    
 
     const updatedQuery: any = {
       ...currentQuery,
@@ -52,18 +63,21 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       delete updatedQuery.category;
     }
 
+    
+
     const url = qs.stringifyUrl({
       url: '/',
       query: updatedQuery
     }, { skipNull: true });
 
     router.push(url);
-  }, [label, router, params]);
+  }, [label, router, params, backgroundColor]);
 
   // Define a style object to set the background image
   const style = {
     backgroundImage: image ? `url('${image}')` : undefined,
     backgroundColor: !image ? backgroundColor : undefined,
+    borderTop: selected ? `3px solid ${borderTopColor}` : undefined, 
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   };
@@ -78,13 +92,14 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         transition-all 
         ease-in-out 
         duration-300
+        drop-shadow-xl
         cursor-pointer
         relative  // <-- added relative positioning
         mr-[-30px]  // <-- added negative margin to create overlap
       `}
     >
       {/*<Icon size={30} className={`${selected ? 'text-white' : 'text-white'}`} />*/}
-      <div className="label">
+      <div className="label font-medium text-white">
         {label}
       </div>
     </div>

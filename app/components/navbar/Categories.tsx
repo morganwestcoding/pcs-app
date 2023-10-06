@@ -1,4 +1,5 @@
 'use client';
+import React, { useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { ImScissors } from 'react-icons/im';
 import { TbMassage, TbEyeClosed } from 'react-icons/tb';
@@ -67,6 +68,7 @@ export const categories = [
 ]
 
 const Categories = () => {
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const params = useSearchParams();
   const category = params?.get('category');
   const pathname = usePathname();
@@ -77,7 +79,7 @@ const Categories = () => {
   }
 
   return (
-    <div className='bg-white'>
+    <div className='bg-white' style={{borderTop: `3px solid ${selectedColor}`}}>
     <Container>
       <div className="flex flex-row items-stretch gap-20">
         {categories.map((item) => (
@@ -88,7 +90,9 @@ const Categories = () => {
             icon={item.icon}
             image={item.image}
             backgroundColor={item.backgroundColor}
+            onSelectColor={setSelectedColor}
             selected={category === item.label}
+            
           />
          
         ))}
