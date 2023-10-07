@@ -37,6 +37,10 @@ const RentModal = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(STEPS.CATEGORY);
+  const [serviceEntries, setServiceEntries] = useState<number>(4); // NEW STATE
+   const addServiceEntry = () => {
+    setServiceEntries(prevCount => prevCount + 1);
+  };
 
   const { 
     register, 
@@ -182,7 +186,7 @@ const RentModal = () => {
           title="Share some basics about your place"
           subtitle="What services do you offer?"
         />
-        {Array.from({ length: 8 }).map((_, index) => (
+        {Array.from({ length: serviceEntries }).map((_, index) => (
           <div key={index} className="flex gap-4">
             <Input
               id={`services[${index}].name`}
@@ -201,6 +205,12 @@ const RentModal = () => {
             />
           </div>
         ))}
+        <button
+           onClick={addServiceEntry} 
+          className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+        >
+          Add More
+          </button>
       </div>
     );
   }
@@ -279,7 +289,9 @@ const RentModal = () => {
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
       onClose={rentModal.onClose}
-      body={bodyContent}
+      body={ <div className="max-h-[50vh] overflow-y-auto">
+          {bodyContent}
+        </div>}
     />
   );
 }

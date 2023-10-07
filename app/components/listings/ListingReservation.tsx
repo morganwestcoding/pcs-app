@@ -31,7 +31,7 @@ const ListingReservation: React.FC<
       className="
       bg-white 
         rounded-xl 
-        border-[1px]
+        border-[10px]
       border-neutral-200 
         overflow-hidden
       "

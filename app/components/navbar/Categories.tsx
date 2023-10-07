@@ -78,10 +78,16 @@ const Categories = () => {
     return null;
   }
 
-  const containerStyle = {
-    borderBottom: `6px solid ${selectedColor || 'transparent'}`,
-    marginBottom: '-6px',
-    transition: 'border-bottom-color 0.3s ease-in-out'  // Add the transition effect here
+  const containerStyle = selectedColor 
+    ? {
+        borderBottom: `6px solid ${selectedColor}`,
+        marginBottom: '-6px',
+        transition: 'border-bottom-color 0.3s ease-in-out'
+      }
+    : {
+        borderBottom: '1px solid #E5E7EB',  // border-neutral-200 in Tailwind
+        marginBottom: '-1px',
+        transition: 'border-bottom-color 0.3s ease-in-out'
 };
 
 

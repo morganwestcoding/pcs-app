@@ -13,7 +13,7 @@ import Modal from "./Modal";
 import Calendar from "../inputs/Calendar";
 import Counter from "../inputs/Counter";
 import CountrySelect, { 
-  CountrySelectValue
+  CitySelectValue
 } from "../inputs/CountrySelect";
 import Heading from '../Heading';
 
@@ -30,7 +30,7 @@ const SearchModal = () => {
 
   const [step, setStep] = useState(STEPS.LOCATION);
 
-  const [location, setLocation] = useState<CountrySelectValue>();
+  const [location, setLocation] = useState<CitySelectValue>();
   const [guestCount, setGuestCount] = useState(1);
   const [roomCount, setRoomCount] = useState(1);
   const [bathroomCount, setBathroomCount] = useState(1);
@@ -126,10 +126,10 @@ const SearchModal = () => {
       <CountrySelect 
         value={location} 
         onChange={(value) => 
-          setLocation(value as CountrySelectValue)} 
+          setLocation(value as CitySelectValue)} 
       />
       <hr />
-      <Map center={location?.latlng} />
+      
     </div>
   )
 
