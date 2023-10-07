@@ -5,12 +5,8 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { format } from 'date-fns';
 
-import useCountries from "@/app/hooks/useCountries";
-import { 
-  SafeListing, 
-  SafeReservation, 
-  SafeUser 
-} from "@/app/types";
+import { californiaCities } from '@/app/components/inputs/CitySelect';
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 
 import HeartButton from "../HeartButton";
 import Button from "../Button";
@@ -23,7 +19,7 @@ interface ListingCardProps {
   disabled?: boolean;
   actionLabel?: string;
   actionId?: string;
-  currentUser?: SafeUser | null
+  currentUser?: SafeUser | null;
 };
 
 const ListingCard: React.FC<ListingCardProps> = ({
@@ -36,20 +32,27 @@ const ListingCard: React.FC<ListingCardProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
-  const { getByValue } = useCountries();
 
-  const location = getByValue(data.locationValue);
+  // Fetch the city object from californiaCities based on locationValue
+  const city = californiaCities.find(city => city.value === data.locationValue);
+
+  // If city isn't found, set a default value
+  const cityName = city?.label || "Unknown City";
+  const cityRegion = city?.region || "Unknown Region";
+
+  // State is a constant value
+  const stateName = "California";
 
   const handleCancel = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
+      e.stopPropagation();
 
-    if (disabled) {
-      return;
-    }
+      if (disabled) {
+        return;
+      }
 
-    onAction?.(actionId)
-  }, [disabled, onAction, actionId]);
+      onAction?.(actionId)
+    }, [disabled, onAction, actionId]);
 
   const price = useMemo(() => {
     if (reservation) {
@@ -63,7 +66,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
     if (!reservation) {
       return null;
     }
-  
+
     const start = new Date(reservation.startDate);
     const end = new Date(reservation.endDate);
 
@@ -97,7 +100,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
             src={data.imageSrc}
             alt="Listing"
           />
-          
+
           <div className="
             absolute
             top-3
@@ -111,9 +114,9 @@ const ListingCard: React.FC<ListingCardProps> = ({
         </div>
         <div className="mt-2 text-lg font-semibold">
           {data.title}
-          </div>
+        </div>
         <div className="font-light text-neutral-500">
-          {location?.region}, {location?.label}
+          {`${cityName}, ${stateName}`}
         </div>
         <div className="text-sm font-light text-neutral-500">
           {reservationDate || data.category}
@@ -138,5 +141,5 @@ const ListingCard: React.FC<ListingCardProps> = ({
     </div>
    );
 }
- 
+
 export default ListingCard;

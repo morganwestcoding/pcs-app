@@ -14,7 +14,7 @@ import Calendar from "../inputs/Calendar";
 import Counter from "../inputs/Counter";
 import CountrySelect, { 
   CitySelectValue
-} from "../inputs/CountrySelect";
+} from "../inputs/CitySelect";
 import Heading from '../Heading';
 
 enum STEPS {

@@ -1,9 +1,6 @@
-'use client';
-
 import Select from 'react-select'
 
-export type CitySelectValue
- = {
+export type CitySelectValue = {
   label: string;
   value: string;
   flag: string;
@@ -11,25 +8,24 @@ export type CitySelectValue
 }
 
 interface CitySelectProps {
-  value?: CitySelectValue
-  ;
-  onChange: (value: CitySelectValue
-    ) => void;
+  value?: CitySelectValue;
+  onChange: (value: CitySelectValue) => void;
 }
 
-const CitySelect: React.FC<CitySelectProps> = ({
-  value,
-  onChange
-}) => {
-  const californiaCities = [
-      { 
+export const californiaCities = [
+  { 
     label: "Los Angeles", 
     value: "Los Angeles",
     flag: "🌴",  // example flag
     region: "Southern California"  // example region
   },
-  ];
+  // ... other cities
+];
 
+const CitySelect: React.FC<CitySelectProps> = ({
+  value,
+  onChange
+}) => {
   return ( 
     <div>
       <Select
@@ -37,11 +33,9 @@ const CitySelect: React.FC<CitySelectProps> = ({
         isClearable
         options={californiaCities}
         value={value}
-        onChange={(value) => onChange(value as CitySelectValue
-          )}
+        onChange={(value) => onChange(value as CitySelectValue)}
         formatOptionLabel={(option: any) => (
-          <div className="
-          flex flex-row items-center gap-3">
+          <div className="flex flex-row items-center gap-3">
             <div>{option.flag}</div>
             <div>
               {option.label},
@@ -69,5 +63,5 @@ const CitySelect: React.FC<CitySelectProps> = ({
     </div>
    );
 }
- 
+
 export default CitySelect;

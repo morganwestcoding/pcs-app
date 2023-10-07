@@ -1,10 +1,6 @@
-'use client';
-
 import Image from "next/image";
-
-import useCountries from "@/app/hooks/useCountries";
+import { californiaCities } from '@/app/components/inputs/CitySelect';
 import { SafeUser } from "@/app/types";
-
 import Heading from "../Heading";
 import HeartButton from "../HeartButton";
 
@@ -23,15 +19,20 @@ const ListingHead: React.FC<ListingHeadProps> = ({
   id,
   currentUser
 }) => {
-  const { getByValue } = useCountries();
+  const city = californiaCities.find(city => city.value === locationValue);
 
-  const location = getByValue(locationValue);
+  const cityName = city?.label || "Unknown City";
+  const cityRegion = city?.region || "Unknown Region";
+
+
+  const stateName = "California";
+
 
   return ( 
     <>
       <Heading
         title={title}
-        subtitle={`${location?.region}, ${location?.label}`}
+        subtitle={`${cityName}, ${stateName}`}
       />
       <div className="
           w-full
