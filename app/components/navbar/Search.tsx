@@ -16,7 +16,7 @@ const Search = () => {
             {/* White Circle / Search Bar Background */}
             <div 
                 className={`absolute top-1/2 transform -translate-y-1/2 translate-x-7 h-12 rounded-full bg-white transition-all duration-300 z-10 border-[2px] border-neutral-200 ${isExtended ? 'w-64' : 'w-12'}`}
-                style={{ right: isExtended ? 'calc(50% + 4.5rem - 64px)' : 'calc(50% + 0.5rem - 4px)' }}  // Adjusted positioning here
+                style={{ right: isExtended ? 'calc(50% + 4.5rem - 68px)' : 'calc(50% + 0.5rem - 4px)' }}  // Adjusted positioning here
             >
                 {isExtended && (
                     <input type="text" placeholder="Search..." className="bg-transparent w-full h-full px-4" />
