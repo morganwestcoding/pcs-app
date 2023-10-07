@@ -4,8 +4,10 @@ import Select from 'react-select'
 
 export type CitySelectValue
  = {
-label: string;
-value: string;
+  label: string;
+  value: string;
+  flag: string;
+  region: string;
 }
 
 interface CitySelectProps {
@@ -20,7 +22,12 @@ const CitySelect: React.FC<CitySelectProps> = ({
   onChange
 }) => {
   const californiaCities = [
-    { label: "Los Angeles", value: "Los Angeles" },
+      { 
+    label: "Los Angeles", 
+    value: "Los Angeles",
+    flag: "🌴",  // example flag
+    region: "Southern California"  // example region
+  },
   ];
 
   return ( 
