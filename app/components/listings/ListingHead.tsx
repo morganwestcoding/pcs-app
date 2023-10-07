@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { californiaCities } from '@/app/components/inputs/CitySelect';
+import { californiaCities } from '@/app/components/inputs/CountrySelect';
 import { SafeUser } from "@/app/types";
 import Heading from "../Heading";
 import HeartButton from "../HeartButton";

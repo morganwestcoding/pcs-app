@@ -2,19 +2,17 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
-import { format } from 'date-fns';
+import { useCallback } from "react";
 
-import { californiaCities } from '@/app/components/inputs/CitySelect';
-import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
+import { californiaCities } from '@/app/components/inputs/CountrySelect';
+import { SafeListing, SafeUser } from "@/app/types";
+import { ServiceSlider } from '@/app/components/inputs/ServiceSlider' // Make sure to update the path
 
 import HeartButton from "../HeartButton";
 import Button from "../Button";
-import ClientOnly from "../ClientOnly";
 
 interface ListingCardProps {
   data: SafeListing;
-  reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
@@ -24,7 +22,6 @@ interface ListingCardProps {
 
 const ListingCard: React.FC<ListingCardProps> = ({
   data,
-  reservation,
   onAction,
   disabled,
   actionLabel,
@@ -32,46 +29,18 @@ const ListingCard: React.FC<ListingCardProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
-
-  // Fetch the city object from californiaCities based on locationValue
-  const city = californiaCities.find(city => city.value === data.locationValue);
-
-  // If city isn't found, set a default value
-  const cityName = city?.label || "Unknown City";
-  const cityRegion = city?.region || "Unknown Region";
-
-  // State is a constant value
-  const stateName = "California";
+  const location = californiaCities.find(city => city.value === data.locationValue);
 
   const handleCancel = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
+    e.stopPropagation();
 
-      if (disabled) {
-        return;
-      }
-
-      onAction?.(actionId)
-    }, [disabled, onAction, actionId]);
-
-  const price = useMemo(() => {
-    if (reservation) {
-      return reservation.totalPrice;
+    if (disabled) {
+      return;
     }
 
-    return data.price;
-  }, [reservation, data.price]);
-
-  const reservationDate = useMemo(() => {
-    if (!reservation) {
-      return null;
-    }
-
-    const start = new Date(reservation.startDate);
-    const end = new Date(reservation.endDate);
-
-    return `${format(start, 'PP')} - ${format(end, 'PP')}`;
-  }, [reservation]);
+    onAction?.(actionId)
+  }, [disabled, onAction, actionId]);
 
   return (
     <div 
@@ -100,7 +69,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
             src={data.imageSrc}
             alt="Listing"
           />
-
+          
           <div className="
             absolute
             top-3
@@ -116,18 +85,10 @@ const ListingCard: React.FC<ListingCardProps> = ({
           {data.title}
         </div>
         <div className="font-light text-neutral-500">
-          {`${cityName}, ${stateName}`}
+          {location?.region}, {location?.label}
         </div>
         <div className="text-sm font-light text-neutral-500">
-          {reservationDate || data.category}
-        </div>
-        <div className="flex flex-row items-center gap-1">
-          <div className="font-semibold">
-            $ {price}
-          </div>
-          {!reservation && (
-            <div className="font-light">night</div>
-          )}
+          <ServiceSlider services={data.services} />
         </div>
         {onAction && actionLabel && (
           <Button
@@ -139,7 +100,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         )}
       </div>
     </div>
-   );
+  );
 }
 
 export default ListingCard;
