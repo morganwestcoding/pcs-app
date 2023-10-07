@@ -29,7 +29,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
-  const location = californiaCities.find(city => city.value === data.locationValue);
+  const city = californiaCities.find(city => city.value === data.locationValue);
+
+  const cityName = city?.label || "Unknown City";
+  const cityRegion = city?.region || "Unknown Region";
+
+  const stateName = "California";
 
   const handleCancel = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -85,7 +90,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
           {data.title}
         </div>
         <div className="font-light text-neutral-500">
-          {location?.region}, {location?.label}
+          {`${cityName}, ${stateName}`}
         </div>
         <div className="text-sm font-light text-neutral-500">
           <ServiceSlider services={data.services} />
