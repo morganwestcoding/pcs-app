@@ -15,17 +15,18 @@ const Search = () => {
             
             {/* White Circle / Search Bar Background */}
             <div 
-                className={`absolute top-1/2 right-1/5 transform -translate-y-1/2 ${isExtended ? 'w-64' : 'w-12'} h-12 rounded-full bg-white transition-all duration-300 z-10 border-[2px] border-neutral-200`}
+                className={`absolute top-1/2 transform -translate-y-1/2 translate-x-7 h-12 rounded-full bg-white transition-all duration-300 z-10 border-[2px] border-neutral-200 ${isExtended ? 'w-64' : 'w-12'}`}
+                style={{ right: isExtended ? 'calc(50% + 4.5rem - 64px)' : 'calc(50% + 0.5rem - 4px)' }}  // Adjusted positioning here
             >
                 {isExtended && (
                     <input type="text" placeholder="Search..." className="bg-transparent w-full h-full px-4" />
                 )}
             </div>
 
-            {/* Black Circle with Search Icon - Moves to Right of Extended White Circle */}
+            {/* Black Circle with Search Icon - Remains stationary */}
             <div 
-                className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full bg-white w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-[3px] border-blue-500 transition-all duration-300" 
-                style={{ left: isExtended ? 'calc(100% - -7px + 64px)' : '50%' }}
+                className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded-full bg-white w-9 h-9 flex items-center justify-center cursor-pointer z-20 border-[3px] border-blue-500" 
+                style={{ left: '50%' }}
                 onClick={toggleSearchBar}
             >
                 <BiSearch className="text-black" />
@@ -35,3 +36,6 @@ const Search = () => {
 };
 
 export default Search;
+
+
+

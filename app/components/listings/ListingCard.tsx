@@ -28,6 +28,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   actionId = '',
   currentUser,
 }) => {
+  console.log("Services in ListingCard:", data.services);  
   const router = useRouter();
   const city = californiaCities.find(city => city.value === data.locationValue);
 
@@ -93,7 +94,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
           {`${cityName}, ${stateName}`}
         </div>
         <div className="text-sm font-light text-neutral-500">
-          <ServiceSlider services={data.services} />
+          <ServiceSlider services={data.services || []} />
         </div>
         {onAction && actionLabel && (
           <Button

@@ -88,7 +88,8 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       onClick={handleClick}
       style={style} 
             className={`
-        tab 
+        tab
+        rounded-sm
        ${selected ? 'drop-shadow-xl' : ''}
         transition-all 
         ease-in-out 

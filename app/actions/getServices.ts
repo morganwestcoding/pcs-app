@@ -1,14 +1,15 @@
 import prisma from "@/app/libs/prismadb";
-import { ServiceSlider } from "../components/inputs/ServiceSlider";
 
-export async function getServices() {
+export async function getServices(listingId: string) {
   try {
-    const services = await prisma.service.findMany(); // Adjust based on your Prisma schema
+    const services = await prisma.service.findMany({
+      where: {
+        listingId: listingId
+      }
+    });
     return services;
   } catch (error) {
     console.error("Error fetching services:", error);
     return [];
   }
 };
-
-export default ServiceSlider;
