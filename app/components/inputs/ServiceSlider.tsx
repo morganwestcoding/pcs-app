@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-interface Service {
+type Service = {
   name: string;
   price: number;
-}
+};
 
 interface ServiceSliderProps {
   services: Service[];
@@ -30,3 +30,4 @@ export const ServiceSlider: React.FC<ServiceSliderProps> = ({ services = [] }) =
   );
 };
 
+export default ServiceSlider;

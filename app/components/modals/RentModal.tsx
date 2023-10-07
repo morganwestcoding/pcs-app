@@ -203,18 +203,7 @@ const RentModal = () => {
               register={register}
               errors={errors}
             />
-             <select 
-              id={`services[${index}].color`}
-              className="border border-gray-300 rounded-md p-2"
-              {...register(`services[${index}].color`, { required: true })}
-            >
-              <option value="">Select Color</option>
-              {categories.map(cat => (
-                <option key={cat.label} value={cat.backgroundColor}>
-                  {cat.label} ({cat.backgroundColor})
-                </option>
-              ))}
-            </select>
+            
           </div>
         ))}
         <button

@@ -58,6 +58,7 @@ model Listing {
 
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]
+  services     Service[]
 }
 
 model Reservation {
@@ -70,5 +71,14 @@ model Reservation {
   createdAt  DateTime @default(now())
 
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
+
+model Service {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  price     Int
+  listingId String @db.ObjectId
+
   listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
 }

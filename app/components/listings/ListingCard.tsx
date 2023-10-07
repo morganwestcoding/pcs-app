@@ -6,7 +6,7 @@ import { useCallback } from "react";
 
 import { californiaCities } from '@/app/components/inputs/CountrySelect';
 import { SafeListing, SafeUser } from "@/app/types";
-import { ServiceSlider } from '@/app/components/inputs/ServiceSlider' // Make sure to update the path
+import { ServiceSlider } from "../inputs/ServiceSlider";
 
 import HeartButton from "../HeartButton";
 import Button from "../Button";
