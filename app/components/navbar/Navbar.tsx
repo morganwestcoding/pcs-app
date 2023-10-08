@@ -30,6 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <Logo />
           <div className="flex-grow"></div>
           <Search />
+          
           <UserMenu currentUser={currentUser} />
           
         </div>

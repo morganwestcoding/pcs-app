@@ -89,7 +89,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       style={style} 
             className={`
         tab
-        rounded-sm
+        
        ${selected ? 'drop-shadow-xl' : ''}
         transition-all 
         ease-in-out 
