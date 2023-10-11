@@ -169,7 +169,7 @@ body,
 .switch-container {
   display: flex;
   justify-content: flex-start; /* change from flex-end to flex-start */
-  padding-left: 100px;
+  padding-left: 80px;
   /* Optional: add some padding to ensure the switch doesn't touch the edge of the container */
 }
 

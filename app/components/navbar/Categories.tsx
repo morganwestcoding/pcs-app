@@ -112,14 +112,9 @@ const Categories = () => {
       </div>     
     </Container>
     </div>
-    
- <div className="mt-4 bg-white switch-container">
- <label className="switch mr-4">
-    <input type="checkbox" />
-    <span className="slider round"></span>
-  </label>
 
-  <label className="switch">
+ <div className="mt-4 bg-white switch-container">
+ <label className="switch">
     <input type="checkbox" />
     <span className="slider round"></span>
   </label>
