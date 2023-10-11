@@ -81,6 +81,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     border: 'none',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    
   };
 
   return (

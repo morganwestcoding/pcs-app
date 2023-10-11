@@ -21,6 +21,7 @@ import { categories } from '../navbar/Categories';
 import ImageUpload from '../inputs/ImageUpload';
 import Input from '../inputs/Input';
 import Heading from '../Heading';
+import ServiceSlider from '../inputs/ServiceSlider';
 
 enum STEPS {
   CATEGORY = 0,
@@ -212,6 +213,7 @@ const RentModal = () => {
         >
           Add More
           </button>
+          
       </div>
     );
   }

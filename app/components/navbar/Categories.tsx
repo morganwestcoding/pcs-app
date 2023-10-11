@@ -13,7 +13,7 @@ import { MdFaceRetouchingNatural } from 'react-icons/md';
 
 import CategoryBox from "../CategoryBox";
 import Container from '../Container';
-
+import { Switch } from '@mui/base/Switch';
 
 export const categories = [
   {
@@ -92,6 +92,7 @@ const Categories = () => {
 
 
   return (
+    <>
     <div className='bg-white' style={containerStyle}>
     <Container>
       <div className="flex flex-row items-stretch gap-20 ">
@@ -108,9 +109,16 @@ const Categories = () => {
           />
          
         ))}
-      </div>
+      </div>     
     </Container>
     </div>
+ <div className="mt-4 bg-white switch-container">
+  <label className="switch">
+    <input type="checkbox" />
+    <span className="slider round"></span>
+  </label>
+</div>
+      </>
   );
 }
  
