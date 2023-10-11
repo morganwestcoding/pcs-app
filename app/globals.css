@@ -26,60 +26,67 @@ body,
 }
 
 /* Custom styles for CategoryBox */
+
 .tab {
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  margin-top: 0;
-
-  clip-path: polygon(
-  10% 12%,
-    90% 12%,
-    100% 100%,
-    0% 100%
-  );
-  border: 1px solid #ddd;
-  padding: 16px 32px;
-  background-color: #f0f0f0;
-  cursor: pointer;
-  width: 220px;
-  text-align: center;
+  display: block;
+  float: right;
+  padding: 10px 24px 8px;
+  background-color: #FFF;
+  margin-right: 46px;
+  z-index: 2;
   position: relative;
-  margin-left: -60px;
-  
-  /* Adjust this value to achieve the desired overlap */
-  z-index: 10;
-  background: white;
-    /* Ensure there's a background */
-}
+  text-transform: uppercase;
+  font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
 
-.tab:first-child {
-  margin-left: 5px;
-  /* Reset the negative margin for the first tab */
+  transition: all 250ms ease;
 }
-
+.tab:before,
+.tab:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 44px;  
+  background-color: #FFF;
+  transition: all 250ms ease;
+}
+.tab:before {
+  right: -24px;
+  transform: skew(30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) 3px 2px 5px, inset rgba(255,255,255,.09) -1px 0;
+}
+.tab:after {
+  left: -24px;
+  transform: skew(-30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) -3px 2px 5px, inset rgba(255,255,255,.09) 1px 0;
+}
+.tab:hover,
+.tab:hover:before,
+.tab:hover:after {
+  background-color: #F4F7F9;
+  color: #444;
+}
 .tab.active {
-  border-color: #333;
-  background-color: #fff;
-  z-index: 40;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  /* Ensure active tab is on top */
+  z-index: 3;
+}
+.tab.active,
+.tab:before,
+.tab:after {
+  background-color: #000;
+  color: #fff;
 }
 
-.tab .label {
-  margin-left: 10px;
-}
 
-.label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  margin-top: 6px;
-  
-  
+/*----- Round Tabs -----*/
+.tab.round{
+  border-radius: 8px 8px 0 0;
 }
-
-.tabs-container {
-  transition: borderTopColor 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
+.tab.round:before {
+  border-radius: 0 8px 0 0;
+}
+.tab.round:after {
+  border-radius: 8px 0 0 0;
 }
 
 .switch-container {
