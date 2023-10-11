@@ -72,7 +72,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     }, { skipNull: true });
 
     router.push(url);
-}, [label, router, params, backgroundColor, onSelectColor]);
+}, [label, router, params, onSelectColor]);
 
   // Define a style object to set the background image
   const style = {
