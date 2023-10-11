@@ -30,7 +30,7 @@ body,
 .tab {
   display: block;
   float: right;
-  padding: 10px 24px 8px;
+  padding: 14px 28px 8px;
   background-color: #FFF;
   margin-right: 46px;
   z-index: 2;
@@ -68,8 +68,16 @@ body,
   color: #444;
 }
 .tab.active {
+  background-color: #000!important;
+  color: #fff !important;
   z-index: 3;
 }
+
+.tab.active:before,
+.tab.active:after {
+  background-color: #000 !important;
+}
+
 .tab.active,
 .tab:before,
 .tab:after {
@@ -85,9 +93,78 @@ body,
 .tab.round:before {
   border-radius: 0 8px 0 0;
 }
-.tab.round:after {
+.tab:after {
   border-radius: 8px 0 0 0;
 }
+
+/* ... existing CSS ... */
+
+.tab.nails {
+  background-color: #c49a6c;
+}
+.tab.nails:before,
+.tab.nails:after {
+  background-color: #c49a6c;
+}
+
+.tab.barber {
+  background-color: #b08b61;
+}
+.tab.barber:before,
+.tab.barber:after {
+  background-color: #b08b61;
+}
+
+.tab.salon {
+  background-color: #9d7b56;
+}
+.tab.salon:before,
+.tab.salon:after {
+  background-color: #9d7b56;
+}
+
+.tab.massage {
+  background-color: #896c4c;
+}
+.tab.massage:before,
+.tab.massage:after {
+  background-color: #896c4c;
+}
+
+.tab.eyebrows {
+  background-color: #765c41;
+}
+.tab.eyebrows:before,
+.tab.eyebrows:after {
+  background-color: #765c41;
+}
+
+.tab.facial {
+  background-color: #624d36;
+}
+.tab.facial:before,
+.tab.facial:after {
+  background-color: #624d36;
+}
+
+.tab.trainer {
+  background-color: #4e3e2b;
+}
+.tab.trainer:before,
+.tab.trainer:after {
+  background-color: #4e3e2b;
+}
+
+.tab.flex {
+  background-color: #3b2e20;
+}
+.tab.flex:before,
+.tab.flex:after {
+  background-color: #3b2e20;
+}
+
+/* ... remaining CSS ... */
+
 
 .switch-container {
   display: flex;

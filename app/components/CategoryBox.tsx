@@ -78,24 +78,26 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   const style = {
     backgroundImage: image ? `url('${image}')` : undefined,
     backgroundColor: selected ? 'black' : !image ? backgroundColor : undefined,
+    
     border: 'none',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     
   };
 
+  const categoryClassName = label.toLowerCase();
+
   return (
     <div
       onClick={handleClick}
       style={style} 
+      
             className={`
-        tab round
-        
-       ${selected ? 'drop-shadow-xl' : ''}
+            tab round ${categoryClassName}
+       ${selected ? 'drop-shadow-xl active' : ''}
         transition-all 
         ease-in-out 
         cursor-pointer
-        mr-[-30px]  // <-- added negative margin to create overlap
       `}
     >
       {/*<Icon size={30} className={`${selected ? 'text-white' : 'text-white'}`} />*/}

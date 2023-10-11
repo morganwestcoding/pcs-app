@@ -95,7 +95,7 @@ const Categories = () => {
     <>
     <div className='bg-white' style={containerStyle}>
     <Container>
-      <div className="flex flex-row items-stretch gap-20 ">
+      <div className="tabs-container flex flex-row justify-center ">
         {categories.map((item) => (
            
           <CategoryBox 
@@ -114,6 +114,8 @@ const Categories = () => {
     </div>
  <div className="mt-4 bg-white switch-container">
   <label className="switch">
+    <input type="checkbox" />
+    <span className="slider round"></span>
     <input type="checkbox" />
     <span className="slider round"></span>
   </label>
