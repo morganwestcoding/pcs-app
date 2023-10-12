@@ -169,7 +169,7 @@ const RentModal = () => {
       <div className="flex flex-col gap-8">
         <Heading
           title="Where is your place located?"
-          subtitle="Help guests find you!"
+          subtitle="Help clients find you!"
         />
         <CountrySelect 
           value={location} 
@@ -204,7 +204,18 @@ const RentModal = () => {
               register={register}
               errors={errors}
             />
-            
+<select 
+    {...register(`services.${index}.color`)}
+    className="border rounded-md p-2 w-full focus:border-blue-500"
+>
+    <option value="" disabled>Select category color</option>
+    {categories.map((category) => (
+        <option value={category.backgroundColor} key={category.label}>
+            {category.label} - {category.backgroundColor}
+        </option>
+    ))}
+</select>
+
           </div>
         ))}
         <button
@@ -223,7 +234,7 @@ const RentModal = () => {
       <div className="flex flex-col gap-8">
         <Heading
           title="Add a photo of your place"
-          subtitle="Show guests what your place looks like!"
+          subtitle="Show clients what your place looks like!"
         />
         <ImageUpload
           onChange={(value) => setCustomValue('imageSrc', value)}

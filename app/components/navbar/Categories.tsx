@@ -95,7 +95,7 @@ const Categories = () => {
     <>
     <div className='bg-white' style={containerStyle}>
     <Container>
-      <div className="tabs-container flex flex-row justify-center ">
+      <div className=" flex flex-row justify-center ml-8 ">
         {categories.map((item) => (
            
           <CategoryBox 
