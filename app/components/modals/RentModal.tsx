@@ -21,7 +21,7 @@ import { categories } from '../navbar/Categories';
 import ImageUpload from '../inputs/ImageUpload';
 import Input from '../inputs/Input';
 import Heading from '../Heading';
-import ServiceSlider from '../inputs/ServiceSlider';
+import ServiceInput from '../inputs/ServiceInput';
 
 enum STEPS {
   CATEGORY = 0,
@@ -183,49 +183,19 @@ const RentModal = () => {
   if (step === STEPS.INFO) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="Share some basics about your place"
-          subtitle="What services do you offer?"
-        />
-        {Array.from({ length: serviceEntries }).map((_, index) => (
-          <div key={index} className="flex gap-4">
-            <Input
-              id={`services[${index}].name`}
-              label={`Service ${index + 1}`}
-              disabled={isLoading}
-              register={register}
-              errors={errors}
-            />
-            <Input
-              id={`services[${index}].price`}
-              label="Price"
-              type="number"
-              disabled={isLoading}
-              register={register}
-              errors={errors}
-            />
-<select 
-    {...register(`services.${index}.color`)}
-    className="border rounded-md p-2 w-full focus:border-blue-500"
->
-    <option value="" disabled>Select category color</option>
-    {categories.map((category) => (
-        <option value={category.backgroundColor} key={category.label}>
-            {category.label} - {category.backgroundColor}
-        </option>
-    ))}
-</select>
-
-          </div>
-        ))}
-        <button
-           onClick={addServiceEntry} 
-          className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
-        >
-          Add More
-          </button>
-          
-      </div>
+      <Heading
+        title="Share some basics about your place"
+        subtitle="What services do you offer?"
+      />
+      <ServiceInput 
+        serviceEntries={serviceEntries}
+        addServiceEntry={addServiceEntry}
+        isLoading={isLoading}
+        register={register}
+        errors={errors}
+        categories={categories}
+      />
+    </div>
     );
   }
 
