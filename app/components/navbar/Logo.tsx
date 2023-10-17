@@ -13,7 +13,7 @@ const Logo = () => {
       src="/images/logo.png" 
       height="120" 
       width="120" 
-      alt="Logo" 
+      alt="ForMe Logo" 
     />
    );
 }
