@@ -94,7 +94,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       
             className={`
             tab round ${categoryClassName}
-       ${selected ? 'drop-shadow-xl active' : ''}
+       ${selected ? 'drop-shadow-lg active' : ''}
         transition-all 
         ease-in-out 
         cursor-pointer
