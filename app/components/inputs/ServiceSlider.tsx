@@ -20,7 +20,7 @@ export const ServiceSlider: React.FC<ServiceSliderProps> = ({ services = [] }) =
     );
   }
 
-  if (!services.length) return <div>No services available</div>;
+  if (!services.length) return <div>No services available!</div>;
 
   return (
     <div onClick={nextService}>
