@@ -29,7 +29,8 @@ enum STEPS {
   INFO = 2,
   IMAGES = 3,
   DESCRIPTION = 4,
-  PRICE = 5,
+  PRICE = 5
+  
 }
 
 const RentModal = () => {
@@ -63,6 +64,7 @@ const RentModal = () => {
       price: 1,
       title: '',
       description: '',
+      services: []
     }
   });
 
@@ -94,8 +96,11 @@ const RentModal = () => {
     setStep((value) => value + 1);
   }
 
+  const [services, setServices] = useState([]);
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log("Submitted Data:", data); 
+    setServices(data.services); 
     if (step !== STEPS.PRICE) {
       return onNext();
     }
@@ -105,6 +110,7 @@ const RentModal = () => {
     axios.post('/api/listings', data)
     .then(() => {
       toast.success('Listing created!');
+      
       router.refresh();
       reset();
       setStep(STEPS.CATEGORY)
