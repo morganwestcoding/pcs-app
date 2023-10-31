@@ -16,6 +16,8 @@ import "slick-carousel/slick/slick-theme.css";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
 import { CustomArrowProps } from "react-slick";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -31,22 +33,58 @@ interface ListingCardProps {
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
   <div
     className="slick-arrow slick-next"
-    onClick={onClick}
-    style={{ color: "white", fontSize: "30px", zIndex: 1 }}
+    onClick={(e) => {
+      e.stopPropagation();
+      if (onClick) onClick(e);
+    }}
+    style={{
+      position: "absolute",
+      top: "50%",
+      right: "-15px",
+      transform: "translateY(-50%)",
+      backgroundColor: "black", // Changed to black
+      borderRadius: "50%",
+      width: "30px",
+      height: "30px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+      zIndex: 1,
+    }}
   >
-    &gt;
+
   </div>
 );
 
 const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
   <div
     className="slick-arrow slick-prev"
-    onClick={onClick}
-    style={{ color: "white", fontSize: "30px", zIndex: 1 }}
+    onClick={(e) => {
+      e.stopPropagation();
+      if (onClick) onClick(e);
+    }}
+    style={{
+      position: "absolute",
+      top: "50%",
+      left: "-15px",
+      transform: "translateY(-50%)",
+      backgroundColor: "black", // Changed to black
+      borderRadius: "50%",
+      width: "30px",
+      height: "30px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+      zIndex: 1,
+    }}
   >
-    &lt;
   </div>
 );
+
+
+
 
 const ListingCard: React.FC<ListingCardProps> = ({
   data,
@@ -136,16 +174,13 @@ const ListingCard: React.FC<ListingCardProps> = ({
         <div className="font-light text-neutral-500">
           {`${cityName}, ${stateName}`}
         </div>
-        <div>
+        <div className="service-section" style={{ position: "relative", backgroundColor: "white" }}>
           {data.services && data.services.length > 0 ? (
-            <Slider {...settings}>
+            <Slider key={data.id} {...settings}>
               {data.services.map((service) => (
-                <div key={service.id} className="p-2 bg-black text-white">
+                <div key={service.id} className="p-2">
                   <div className="flex items-center">
-                    <div 
-                      className="h-4 w-4 rounded-full mr-2" 
-                      
-                    ></div>
+                    <div className="h-4 w-4 rounded-full mr-2"></div>
                     <div>{service.name}: ${service.price}</div>
                   </div>
                 </div>
