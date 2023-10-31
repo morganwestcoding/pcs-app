@@ -39,16 +39,14 @@ const RentModal = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(STEPS.CATEGORY);
-  const [serviceEntries, setServiceEntries] = useState<number>(4); // NEW STATE
-   const addServiceEntry = () => {
-    setServiceEntries(prevCount => prevCount + 1);
-  };
+  
 
   const { 
     register, 
     handleSubmit,
     setValue,
     watch,
+    control,
     formState: {
       errors,
     },
@@ -64,12 +62,13 @@ const RentModal = () => {
       price: 1,
       title: '',
       description: '',
-      services: []
+      services: [{ name: '', price: '', category: '' }]
     }
   });
 
   const location = watch('location');
   const category = watch('category');
+  const service = watch('services');
   const guestCount = watch('guestCount');
   const roomCount = watch('roomCount');
   const bathroomCount = watch('bathroomCount');
@@ -110,13 +109,13 @@ const RentModal = () => {
     axios.post('/api/listings', data)
     .then(() => {
       toast.success('Listing created!');
-      
       router.refresh();
       reset();
       setStep(STEPS.CATEGORY)
       rentModal.onClose();
     })
     .catch(() => {
+      
       toast.error('Something went wrong.');
     })
     .finally(() => {
@@ -194,13 +193,13 @@ const RentModal = () => {
         title="Share some basics about your place"
         subtitle="What services do you offer?"
       />
-      <ServiceInput 
-        serviceEntries={serviceEntries}
-        addServiceEntry={addServiceEntry}
-        isLoading={isLoading}
-        register={register}
-        errors={errors}
-        categories={categories}
+      <ServiceInput
+    addServiceEntry={() => {}}
+    isLoading={isLoading}
+    register={register}
+    control={control}
+    errors={errors}
+    categories={categories}
       />
     </div>
     );

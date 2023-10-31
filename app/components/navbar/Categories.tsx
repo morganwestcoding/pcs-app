@@ -14,6 +14,8 @@ import { MdFaceRetouchingNatural } from 'react-icons/md';
 import CategoryBox from "../CategoryBox";
 import Container from '../Container';
 import { Switch } from '@mui/base/Switch';
+import { BsSliders } from 'react-icons/bs';
+import {BsSortAlphaUp} from 'react-icons/bs';
 
 export const categories = [
   {
@@ -27,12 +29,6 @@ export const categories = [
     icon: ImScissors,
     backgroundColor:'#b08b61',
     description: 'Barber services',
-  },
-  {
-    label: 'Salon',
-    icon: PiScissorsLight,
-    backgroundColor:'#9d7b56',
-    description: 'Hair dresser services'
   },
   {
     label: 'Massage',
@@ -63,6 +59,12 @@ export const categories = [
     icon: IoIosFitness,
     backgroundColor:'#3b2e20',
     description: 'Flexologist services'
+  },
+  {
+    label: 'Filter',
+    icon: BsSliders,
+    backgroundColor:'#0000',
+    description: 'Filtering'
   }
 
 ]
@@ -92,10 +94,9 @@ const Categories = () => {
 
 
   return (
-    <>
     <div className='bg-white' style={containerStyle}>
     <Container>
-      <div className=" flex flex-row justify-center ml-8 ">
+      <div className=" flex flex-row justify-center ml-8">
         {categories.map((item) => (
            
           <CategoryBox 
@@ -111,15 +112,7 @@ const Categories = () => {
         ))}
       </div>     
     </Container>
-    </div>
-
- <div className="mt-4 bg-white switch-container">
- <label className="switch">
-    <input type="checkbox" />
-    <span className="slider round"></span>
-  </label>
-</div>
-      </>
+    </div>    
   );
 }
  

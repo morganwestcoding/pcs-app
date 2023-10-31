@@ -23,10 +23,11 @@ export async function POST(
     guestCount,
     location,
     price,
+    services, 
    } = body;
 
   Object.keys(body).forEach((value: any) => {
-    if (!body[value]) {
+    if (!body[value] && value !== 'services') {
       NextResponse.error();
     }
   });
@@ -42,8 +43,14 @@ export async function POST(
       guestCount,
       locationValue: location.value,
       price: parseInt(price, 10),
-      userId: currentUser.id
-    }
+      userId: currentUser.id,
+      services: {
+        create: services.map((service: any) => ({
+          name: service.name,
+          price: parseInt(service.price, 10),
+        })),
+      },
+    },
   });
 
   return NextResponse.json(listing);
