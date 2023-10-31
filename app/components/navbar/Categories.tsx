@@ -30,6 +30,7 @@ export const categories = [
     backgroundColor:'#b08b61',
     description: 'Barber services',
   },
+
   {
     label: 'Massage',
     icon: TbMassage,

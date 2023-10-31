@@ -9,6 +9,7 @@ import { SafeListing, SafeUser } from "@/app/types";
 import React, { useState } from 'react';
 import ServiceSlider from "../inputs/ServiceSlider";
 import Slider from "react-slick";
+import { FiArrowRightCircle } from 'react-icons/fi';
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -32,7 +33,6 @@ interface ListingCardProps {
 
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
   <div
-    className="slick-arrow slick-next"
     onClick={(e) => {
       e.stopPropagation();
       if (onClick) onClick(e);
@@ -40,50 +40,21 @@ const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     style={{
       position: "absolute",
       top: "50%",
-      right: "-15px",
-      transform: "translateY(-50%)",
-      backgroundColor: "black", // Changed to black
+      right: "20px",
+      transform: "translateY(-50%) translateX(50%)",
+      backgroundColor: "white", // Changed to black
       borderRadius: "50%",
-      width: "30px",
-      height: "30px",
+      width: "20px",
+      height: "20px",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
       zIndex: 1,
     }}
   >
-
+<FiArrowRightCircle size={28} color="#c49a6c"/>
   </div>
 );
-
-const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
-  <div
-    className="slick-arrow slick-prev"
-    onClick={(e) => {
-      e.stopPropagation();
-      if (onClick) onClick(e);
-    }}
-    style={{
-      position: "absolute",
-      top: "50%",
-      left: "-15px",
-      transform: "translateY(-50%)",
-      backgroundColor: "black", // Changed to black
-      borderRadius: "50%",
-      width: "30px",
-      height: "30px",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-      zIndex: 1,
-    }}
-  >
-  </div>
-);
-
-
 
 
 const ListingCard: React.FC<ListingCardProps> = ({
@@ -123,7 +94,6 @@ const ListingCard: React.FC<ListingCardProps> = ({
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
-  prevArrow: <PrevArrow />,
     afterChange: (current: number) => setSliderIndex(current),
   };
 
@@ -178,10 +148,9 @@ const ListingCard: React.FC<ListingCardProps> = ({
           {data.services && data.services.length > 0 ? (
             <Slider key={data.id} {...settings}>
               {data.services.map((service) => (
-                <div key={service.id} className="p-2">
-                  <div className="flex items-center">
-                    <div className="h-4 w-4 rounded-full mr-2"></div>
-                    <div>{service.name}: ${service.price}</div>
+                <div key={service.id} className="text-left">
+                  <div className="flex">
+                    <div className="text-left">{service.name}: ${service.price}</div>
                   </div>
                 </div>
               ))}

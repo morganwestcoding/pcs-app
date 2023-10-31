@@ -5,6 +5,7 @@ import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import Chat from "./Chat";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -29,6 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({
         >
           <Logo />
           <div className="flex-grow"></div>
+          <Chat/>
           <Search />
           
           <UserMenu currentUser={currentUser} />

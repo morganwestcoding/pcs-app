@@ -13,7 +13,8 @@ interface CategoryBoxProps {
   backgroundColor?: string;
   borderTopColor?: string;  // Add this line to define the image prop
   selected?: boolean;
-  onSelectColor?: (color: string) => void; 
+  onSelectColor?: (color: string) => void;
+  
 }
 
 interface TabsContainerProps {
@@ -36,6 +37,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   borderTopColor,  // <-- Destructure this prop here
   onSelectColor,  // Destructure the new prop  // Destructure the new prop
   selected,
+  
 }) => {
   const router = useRouter();
   const params = useSearchParams();
@@ -62,7 +64,11 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     } else {
       // Set the border color when tab is selected
       if (onSelectColor) {
-        onSelectColor('black' || 'transparent');
+        if (label === 'Filter') {
+          onSelectColor('transparent');  // Set border color to transparent for "Filter"
+        } else {
+          onSelectColor('black');
+        }
       }
     }
 
@@ -77,12 +83,13 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   // Define a style object to set the background image
   const style = {
     backgroundImage: image ? `url('${image}')` : undefined,
-    backgroundColor: selected ? 'black' : !image ? backgroundColor : undefined,
-    
+    backgroundColor: label === 'Filter' 
+      ? (selected ? 'white' : 'black') 
+      : (selected ? 'black' : backgroundColor || 'transparent'),
+    color: label === 'Filter' ? (selected ? 'black' : 'white') : 'white',
     border: 'none',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    
   };
 
   const categoryClassName = label.toLowerCase();
