@@ -18,7 +18,7 @@ const StaticSearch = () => {
             >
                 {/* Black Circle with Search Icon - Remains stationary */}
                 <div 
-                    className="rounded-full bg-white w-9 h-9 flex items-center justify-center border-[3px] border-blue-500" 
+                    className="rounded-full bg-white w-9 h-9 flex items-center justify-center border-[4px] border-blue-500" 
                 >
                     <BiNews className="text-black" />
                 </div>
